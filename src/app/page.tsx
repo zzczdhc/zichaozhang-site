@@ -104,7 +104,7 @@ const NEWS = [
 ];
 
 // --- Icons (inline SVG for portability) ------------------------------------
-const Icon = ({ children, label }) => (
+const Icon = ({ children }: { children: React.ReactNode }) => (
   <span aria-hidden="true" className="block h-5 w-5">{children}</span>
 );
 
