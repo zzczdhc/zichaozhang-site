@@ -12,14 +12,14 @@ import React, { useEffect, useState } from "react";
 // 3) Edit the data objects below.
 
 const SITE = {
-  name: "Zichao (Alex) Zhang",
+  name: "Zichao Zhang",
   tagline: "MS student @ NYU · Data Science / ML",
   seeking: "Actively seeking Summer 2026 internships in Data Science / ML / AI.",
   email: "z.zichao01@gmail.com",
   github: "https://github.com/zzczdhc",
   linkedin: "https://www.linkedin.com/in/zichao-zhang-5a8162245/",
-  instagram: "", // optional, e.g. "https://instagram.com/yourhandle"
-  resumeUrl: "#", // TODO: replace with your resume/CV PDF link
+  instagram: "",
+  resumeUrl: "#",
   location: "New York, NY",
   heroPhoto: "/portrait_web.jpg",
   ogImage: "/og_image.jpg",
@@ -27,59 +27,52 @@ const SITE = {
 
 const EDUCATION = [
   {
-    school: "New York University",
-    program: "M.S. (in progress)",
-    details: "Graduate studies in data science / computer science with focus on ML & AI.",
-    time: "2025 — present",
+    school: "New York University — Center for Data Science",
+    program: "M.S. in Data Science",
+    details: "Graduate study focused on machine learning and data-centric systems.",
+    time: "Sep 2025 – May 2027 (Expected)",
   },
   {
-    school: "New York University",
-    program: "B.A. in Data Science & Computer Applications",
-    details: "Interdisciplinary AI/ML projects; teaching & research involvement.",
-    time: "2019 — 2025",
+    school: "New York University — College of Arts & Science",
+    program: "B.A. — Joint Major in Data Science & Computer Science; Minor in Business Studies",
+    details: "Dean’s List; Founder’s Day Award.",
+    time: "Sep 2021 – May 2025",
   },
 ];
 
 // If you add screenshots into /public, reference them in `image`.
 const PROJECTS = [
   {
-    title: "TM‑Vec: Protein ML Toolkit",
-    description:
-      "Unified Python library for training/benchmarking TM‑Vec‑like models; talk/demo delivered at NYU CDS.",
-    details:
-      "Built modular training/benchmarking utilities, streamlined configs & logging, and improved eval reproducibility.",
-    tags: ["Protein ML", "PyTorch", "Benchmarking"],
-    image: "/tmvec.jpg", // optional
-    github: "#",
-  },
-  {
-    title: "Deepfake Detection System",
-    description:
-      "Mobile‑friendly pipeline addressing dataset dependency with augmentation + ELA; strong performance on SD/GAN.",
-    details:
-      "Trained DenseNet/MobileNet; Grad‑CAM analysis for explainability; cross‑dataset robustness study.",
-    tags: ["Computer Vision", "Mobile", "Model Explainability"],
+    title: "Deepfake Facial Imagery Detection",
+    description: "Detector using Error Level Analysis (ELA) and Grad‑CAM interpretability with strong cross‑dataset robustness.",
+    details: "Developed augmentation and ELA pipeline to improve generalization; presented results to ~50 peers/faculty.",
+    tags: ["Computer Vision", "Explainability"],
     image: "/deepfake.jpg",
+    github: "https://github.com/zzczdhc/DS301-project-repo",
+  },
+  {
+    title: "RAISE 2024 Finalist: Fear of AI Analysis",
+    description: "NLP pipeline over 10k+ headlines with sentiment, emotion, and stance analysis; recognized as a national finalist.",
+    details: "Built collection/cleaning, sentiment & emotion modeling, stance analysis, and reporting.",
+    tags: ["NLP", "Competition"],
+    image: "/raise.jpg",
+    github: "https://github.com/zzczdhc/rutgers_project",
+    artifact: "/raise_certificate.pdf", // optional: shows a second link in modal
+  },
+  {
+    title: "Learning from 100 Images",
+    description: "Data‑efficient vision with explainability; compact CNN trained with condensation + augmentation.",
+    details: "Achieved strong accuracy on tiny data; built reproducible CLI and visual summaries.",
+    tags: ["Efficient ML", "PyTorch"],
+    image: "/fewshot.jpg",
     github: "#",
   },
   {
-    title: "ExamPrep AI App",
-    description:
-      "GPT‑powered answer checking & question generation for GRE/SAT/TOEFL/LSAT with >200 beta users.",
-    details:
-      "OCR → retrieval → GPT pipeline; analytics and A/B tests planned for next release.",
-    tags: ["Product", "LLM", "iOS/Web"],
-    image: "/examprep.jpg",
-    github: "#",
-  },
-  {
-    title: "SSD Failure Prediction",
-    description:
-      "Large‑scale cloud SSD telemetry; built robust predictors (XGBoost/LightGBM) with strong AUC.",
-    details:
-      "Time‑series cleaning, feature engineering, and thresholding for early‑warning maintenance.",
-    tags: ["Time‑series", "XGBoost", "MLOps"],
-    image: "/ssd.jpg",
+    title: "Responsible AI Audit for Home Credit ADS",
+    description: "Bias analysis + imputation/pruning pipeline; large AUC gains with fairness improvements.",
+    details: "Audited 120+ features; designed mitigation strategies and evaluation.",
+    tags: ["Responsible AI", "Tabular ML"],
+    image: "/fairness.jpg",
     github: "#",
   },
 ];
@@ -87,24 +80,25 @@ const PROJECTS = [
 // Certificates become clickable tiles that open a modal with the screenshot
 const CERTS = [
   {
-    title: "Deep Learning Specialization — Stanford Online / Coursera",
-    image: "/cert_dl.jpg", // add your screenshot file
+    title: "Machine Learning Specialization — Andrew Ng (Coursera)",
+    image: "/ml_specialization.pdf", // you can also use a JPG/PNG screenshot
   },
   {
-    title: "Machine Learning Specialization — Stanford Online / Coursera",
-    image: "/cert_ml.jpg",
+    title: "Deep Learning Specialization — DeepLearning.AI / Coursera",
+    image: "/dl_specialization.pdf",
   },
 ];
 
 const NEWS = [
-  { date: "2025‑08", text: "Started my Master’s at NYU; continuing research and teaching involvement." },
-  { date: "2024‑11", text: "Collaborated with Dan on TM‑Vec and gave a short talk/demo at NYU CDS (slides coming soon)." },
-  { date: "2024‑09", text: "Joined NYU CN3 Lab to work on neural decoding (Pi‑VAE / representation learning)." },
-  { date: "2024‑04", text: "Our team made the finals (3rd place) at RAISE 2024 analyzing AI news with NLP." },
+  { date: "2025‑08", text: "Decided to stay at NYU to pursue the M.S. in Data Science (MSDS)." },
+  { date: "2025‑08", text: "Honored to join the teaching team as a TA for Causal Inference (DS‑UA 201) at NYU CDS." },
+  { date: "2024‑11", text: "Collaborating with Daniel Berenberg in Kyunghyun Cho’s group on TM‑Vec; gave a short talk/demo at NYU CDS." },
+  { date: "2024‑09", text: "Joined NYU Langone’s CN³ Lab to explore interactions between the visual cortex and hippocampus with ML." },
+  { date: "2024‑04", text: "Our team reached the finals at RAISE 2024 with an NLP pipeline analyzing AI headlines." },
 ];
 
 // --- Icons (inline SVG for portability) ------------------------------------
-const Icon = ({ children }: { children: React.ReactNode }) => (
+const Icon = ({ children, label }) => (
   <span aria-hidden="true" className="block h-5 w-5">{children}</span>
 );
 
@@ -142,6 +136,24 @@ const InstagramSVG = (
     <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm5 5.8A4.2 4.2 0 1 0 16.2 12 4.2 4.2 0 0 0 12 7.8Zm6.2-.9a1.1 1.1 0 1 0 1.1 1.1 1.1 1.1 0 0 0-1.1-1.1Zm-6.2 2.2A3 3 0 1 1 9 12a3 3 0 0 1 3-3Z"/>
   </svg>
 );
+
+// --- Reveal / Scroll-in -----------------------------------------------------
+function Reveal({ children, className = "" }) {
+  const [show, setShow] = React.useState(false);
+  const ref = React.useRef(null);
+  React.useEffect(() => {
+    const el = ref.current; if (!el) return;
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { setShow(true); obs.unobserve(el); }
+    }, { threshold: 0.12 });
+    obs.observe(el); return () => obs.disconnect();
+  }, []);
+  return (
+    <div ref={ref} className={`${className} transition-all duration-700 ease-out ${show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+      {children}
+    </div>
+  );
+}
 
 // --- Modal -----------------------------------------------------------------
 function useEsc(handler) {
@@ -220,7 +232,6 @@ export default function Portfolio() {
         <nav className="max-w-5xl mx-auto px-6 md:px-8 h-14 flex items-center justify-between">
           <a href="#home" className="font-medium tracking-tight">{SITE.name}</a>
           <div className="hidden md:flex items-center gap-6 text-sm">
-            <a href="#about" className="hover:opacity-70">About</a>
             <a href="#education" className="hover:opacity-70">Education</a>
             <a href="#projects" className="hover:opacity-70">Projects</a>
             <a href="#news" className="hover:opacity-70">News</a>
@@ -231,80 +242,80 @@ export default function Portfolio() {
 
       {/* Hero */}
       <section id="home" className="relative overflow-hidden bg-gradient-to-b from-[#f5f5f7] to-white">
-        <div className="max-w-5xl mx-auto px-6 md:px-8 pt-14 pb-6 md:pt-20 md:pb-10 grid md:grid-cols-2 gap-10 items-end">
-          {/* Left: name + tagline + seeking pill */}
-          <div className="pb-6">
-            <h1 className="text-5xl md:text-6xl font-semibold leading-tight tracking-tight text-gray-900">{SITE.name}</h1>
-            <p className="mt-3 text-xl text-gray-700">{SITE.tagline}</p>
-            <div className="mt-5 flex flex-wrap gap-2">
-              <Pill>{SITE.seeking}</Pill>
+        <div className="max-w-5xl mx-auto px-6 md:px-8 pt-10 md:pt-16 pb-4 md:pb-8 grid md:grid-cols-2 gap-10 items-start">
+          {/* Left: name + intro paragraphs */}
+          <Reveal className="space-y-4 pt-4 md:pt-6">
+            <h1 className="text-5xl md:text-6xl font-semibold leading-tight tracking-tight text-gray-900 md:whitespace-nowrap">{SITE.name}</h1>
+            <p className="text-lg text-gray-700">{SITE.tagline}</p>
+            <div className="text-[15px] leading-7 text-gray-700 space-y-3">
+              <p>
+                I’m an NYU MS in Data Science student focused on machine learning and data‑centric systems. I earned my B.A. at NYU with a joint major in Data Science & Computer Science and a minor in Business Studies.
+              </p>
+              <p>
+                I work with <span className="font-medium">Daniel Berenberg</span> in <span className="font-medium">Kyunghyun Cho</span>’s group on TM‑Vec—tools and benchmarks for protein remote homology detection and structural alignment using deep learning. My role centers on extending the Python library (training/benchmarking utilities, data pipelines, and new features).
+              </p>
+              <p>
+                At NYU Langone’s <span className="font-medium">CN³ Lab</span>, I combine large‑scale data analysis, ML modeling, and systems engineering to study interactions between the visual cortex and hippocampus.
+              </p>
+              <p>
+                I’m currently seeking <span className="font-medium">Summer 2026</span> Data Science / ML internships.
+              </p>
             </div>
-            {/* Icons intentionally removed in hero per request */}
-          </div>
+          </Reveal>
 
-          {/* Right: large rounded portrait card */}
-          <div className="md:justify-self-end w-full flex justify-end">
+          {/* Right: portrait card */}
+          <Reveal className="md:justify-self-end w-full flex justify-end">
             <div className="relative bg-white rounded-[28px] shadow-lg border border-gray-200 overflow-hidden w-full max-w-md">
-              <img
-                src={SITE.heroPhoto}
-                alt="Portrait of Zichao Zhang in NYU regalia"
-                className="w-full h-full object-cover"
-                loading="eager"
-              />
+              <img src={SITE.heroPhoto} alt="Portrait of Zichao Zhang in NYU regalia" className="w-full h-full object-cover" loading="eager" />
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* About */}
-      <Section id="about" title="About">
-        <Card>
-          <div className="p-6 md:p-8 text-[15px] leading-7 text-gray-700">
-            <p>
-              I’m an NYU MS student focused on machine learning and data science. I enjoy building practical AI systems—ranging from protein ML tooling and neural decoding research to real‑world apps like an AI‑powered exam prep tool. I value clarity, rigor, and human‑centered design.
-            </p>
-          </div>
-        </Card>
-      </Section>
+      
 
       {/* Education */}
       <Section id="education" title="Education">
-        <div className="grid md:grid-cols-2 gap-6">
-          {EDUCATION.map((e) => (
-            <Card key={e.school + e.program}>
-              <div className="p-6">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-medium text-gray-900">{e.school}</h3>
-                  <span className="text-sm text-gray-500">{e.time}</span>
+        <Reveal>
+          <div className="grid md:grid-cols-2 gap-6">
+            {EDUCATION.map((e) => (
+              <Card key={e.school + e.program}>
+                <div className="p-6">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-medium text-gray-900">{e.school}</h3>
+                    <span className="text-sm text-gray-500">{e.time}</span>
+                  </div>
+                  <p className="mt-1 text-sm text-gray-700">{e.program}</p>
+                  <p className="mt-3 text-sm text-gray-600">{e.details}</p>
                 </div>
-                <p className="mt-1 text-sm text-gray-700">{e.program}</p>
-                <p className="mt-3 text-sm text-gray-600">{e.details}</p>
-              </div>
-            </Card>
-          ))}
-        </div>
+              </Card>
+            ))}
+          </div>
+        </Reveal>
       </Section>
 
       {/* Projects */}
       <Section id="projects" title="Selected Projects">
-        <div className="grid md:grid-cols-2 gap-6">
-          {PROJECTS.map((p) => (
-            <Card key={p.title} clickable onClick={() => setOpenProject(p)}>
-              {p.image && (
-                <img src={p.image} alt="" className="w-full h-44 object-cover rounded-t-2xl border-b border-gray-200" />
-              )}
-              <div className="p-6">
-                <h3 className="text-lg font-medium text-gray-900">{p.title}</h3>
-                <p className="mt-2 text-sm text-gray-700">{p.description}</p>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {p.tags.map((t) => (
-                    <span key={t} className="text-xs rounded-full bg-gray-100 text-gray-700 px-2.5 py-1 border border-gray-200">{t}</span>
-                  ))}
+        <Reveal>
+          <div className="grid md:grid-cols-2 gap-6">
+            {PROJECTS.map((p) => (
+              <Card key={p.title} clickable onClick={() => setOpenProject(p)}>
+                {p.image && (
+                  <img src={p.image} alt="" className="w-full h-44 object-cover rounded-t-2xl border-b border-gray-200" />
+                )}
+                <div className="p-6">
+                  <h3 className="text-lg font-medium text-gray-900">{p.title}</h3>
+                  <p className="mt-2 text-sm text-gray-700">{p.description}</p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {p.tags.map((t) => (
+                      <span key={t} className="text-xs rounded-full bg-gray-100 text-gray-700 px-2.5 py-1 border border-gray-200">{t}</span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </Card>
-          ))}
-        </div>
+              </Card>
+            ))}
+          </div>
+        </Reveal>
 
         {/* Certifications */}
         <div className="mt-10">
@@ -323,20 +334,21 @@ export default function Portfolio() {
       </Section>
 
       {/* News */}
-      <Section id="news" title="News / Milestones">
-        <Card>
-          <div className="p-6">
-            <ul className="space-y-4">
-              {NEWS.map((n, i) => (
-                <li key={i} className="flex gap-4">
-                  <div className="mt-1 text-xs font-medium text-gray-500 w-16 shrink-0">{n.date}</div>
-                  <div className="text-sm text-gray-800">{n.text}</div>
-                </li>
-              ))}
-            </ul>
-            <p className="text-xs text-gray-500 mt-6">This section highlights milestones & talks. Papers welcome in the future ✨</p>
-          </div>
-        </Card>
+      <Section id="news" title="News">
+        <Reveal>
+          <Card>
+            <div className="p-6">
+              <ul className="space-y-4">
+                {NEWS.map((n, i) => (
+                  <li key={i} className="flex gap-4">
+                    <div className="mt-1 text-xs font-medium text-gray-500 w-20 shrink-0">{n.date}</div>
+                    <div className="text-sm text-gray-800">{n.text}</div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Card>
+        </Reveal>
       </Section>
 
       {/* Contact */}
@@ -376,11 +388,14 @@ export default function Portfolio() {
               <img src={openProject.image} alt="" className="w-full rounded-xl border border-gray-200" />
             )}
             <p className="leading-6">{openProject.details || openProject.description}</p>
-            {openProject.github && (
-              <a href={openProject.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-gray-300 hover:bg-gray-50">
-                View on GitHub →
-              </a>
-            )}
+            <div className="flex flex-wrap gap-3">
+              {openProject.github && (
+                <a href={openProject.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-gray-300 hover:bg-gray-50">View on GitHub →</a>
+              )}
+              {openProject.artifact && (
+                <a href={openProject.artifact} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-gray-300 hover:bg-gray-50">View certificate →</a>
+              )}
+            </div>
           </div>
         )}
       </Modal>
@@ -390,9 +405,13 @@ export default function Portfolio() {
         {openCert && (
           <div className="space-y-4">
             {openCert.image ? (
-              <img src={openCert.image} alt="Certificate" className="w-full rounded-xl border border-gray-200" />
+              openCert.image.toLowerCase().endsWith('.pdf') ? (
+                <iframe src={openCert.image} className="w-full h-[70vh] rounded-xl border border-gray-200" />
+              ) : (
+                <img src={openCert.image} alt="Certificate" className="w-full rounded-xl border border-gray-200" />
+              )
             ) : (
-              <p className="text-sm text-gray-700">Add a screenshot image path in CERTS to display it here.</p>
+              <p className="text-sm text-gray-700">Add a screenshot/PDF path in CERTS to display it here.</p>
             )}
           </div>
         )}
@@ -406,4 +425,3 @@ export default function Portfolio() {
 // <meta property="og:description" content="MS student @ NYU · Data Science / ML" />
 // <meta property="og:image" content="/og_image.jpg" />
 // <link rel="icon" href="/avatar512.jpg" />
-
