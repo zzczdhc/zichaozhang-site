@@ -16,7 +16,7 @@ export const metadata = {
   title: "Zichao Zhang",
   description: "MS student @ NYU · Data Science / ML",
   icons: {
-    icon: "/zz180.png",                 // 浏览器标签小图标
+    icon: "/icon.png",                 // 浏览器标签小图标
     apple: "/apple-touch-icon.png",    // iOS/Apple Touch
   },
   openGraph: { images: ["/og_image.jpg"] },
