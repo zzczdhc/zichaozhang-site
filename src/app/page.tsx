@@ -177,7 +177,7 @@ export default function Page() {
             {/* 左列：长描述（I’m Zichao…） */}
             <div className="space-y-3">
               <p>
-                I’m Zichao Zhang, a Master’s student in Data Science at New York University, and serve as a section leader for the undergraduate Causal Inference course. My work bridges machine learning and data-centric systems—from interpretable vision and protein modeling to neural decoding and fairness auditing—and I care about clarity, reproducibility, and human-centered impact.
+                I’m a Master’s student in Data Science at New York University, and serve as a section leader for the undergraduate Causal Inference course. My work bridges machine learning and data-centric systems—from interpretable vision and protein modeling to neural decoding and fairness auditing—and I care about clarity, reproducibility, and human-centered impact.
               </p>
             </div>
             {/* 右列：第二段 + seeking 结尾 */}
